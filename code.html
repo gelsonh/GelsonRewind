@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>App Name: A Coding Challenge</title>
+    <title>Rewing: A Coding Challenge</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -41,7 +41,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html">
             <img src="/img/mainLogo1.png" height="30" alt="developer logo" />
-            &nbsp;App Name</a
+            &nbsp;Rewing</a
           >
           <button
             class="navbar-toggler"
@@ -92,26 +92,66 @@
         <div class="col-12 col-lg-8">
           <pre class="line-numbers">
             <code class="language-js">
-              function displayMessage() {
-                let inputBox = document.getElementById("message");
+              function getValues() {
+                let userString = document.getElementById("userString").value;
               
-                let message = inputBox.value;
-              
-                Swal.fire({
-                  backdrop: false,
-                  title: "App Name",
-                  text: message,
-                });
+                let revString = reverseString(userString);
+                displayString(revString);
               }
+              
+              function reverseString(input) {
+                let revString = "";
+              
+                for (let i = input.length - 1; i >= 0; i--) {
+                  let letter = input[i];
+              
+                  revString = revString + letter;
+                }
+              
+                return revString;
+              }
+              
+              function displayString(output) {
+                document.getElementById("results").textContent = output;
+                let alertBox = document.getElementById("alert");
+              
+                alertBox.classList.remove("invisible");
+              }
+              
             </code>
           </pre>
         </div>
         <div class="col-12 col-lg-4">
-          <p>The code is structured in one function</p>
-          <h5>displayMessage</h5>
+          <p></p>
+          <h5>Code Explanation</h5>
           <p>
-            Shows a SweetAlert with the value of the
-            <code>message</code>variable
+            This program allows users to input a string and see its reverse
+            version on the webpage. It is made up of three functions:
+            <code>`getValues`</code>, <code>`reverseString`</code>, and
+            <code>`displayString`</code>. When the user clicks a button on the
+            page, <code>`getValues`</code> is triggered and retrieves the value
+            of an input element with the ID <code>"userString"</code>. It then
+            calls <code>`reverseString`</code> with <code>`userString`</code> as
+            an argument and stores the output in a variable named
+            <code>`revString`</code>. Finally, it calls
+            <code>`displayString`</code> with <code>`revString`</code> as an
+            argument.
+          </p>
+          <p>
+            <code>`reverseString`</code> is a function that takes a string as
+            input and returns the reversed version of the string. It initializes
+            an empty string called <code>`revString`</code> and uses a for loop
+            to iterate through the input string in reverse order. For each
+            iteration, it retrieves the character at the current index and
+            appends it to <code>`revString`</code>. Once the loop is finished,
+            it returns <code>`revString`</code>. <code>`displayString`</code> is
+            a function that accepts a string as input and displays it on the
+            webpage. It sets the text content of an element with the ID
+            <code>"results"</code> to the input string and makes visible an
+            element with the ID <code>"alert</code>" by removing the class
+            <code>"invisible"</code>. In summary, this code provides a
+            straightforward example of how to manipulate strings and display
+            results on a webpage using JavaScript.
           </p>
         </div>
       </div>
